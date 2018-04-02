@@ -1,13 +1,14 @@
 var express = require('express')
-var app = express()
+var router = express()
 
 require('dotenv').load();
 require('./setupMongoose').setupMongoose();
 
-app.get('/', function (req, res) {
-  res.send('Magnets')
-})
+bodyParser = require('body-parser');
+router.use(bodyParser.urlencoded({ extended: false })); // Parses urlencoded bodies
+router.use(bodyParser.json()); // Send JSON responses
 
-app.listen(8000, function () {
+router.listen(8000, function () {
   console.log('Magnets Backend is set up on port 8000')
 })
+
