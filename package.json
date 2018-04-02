@@ -11,13 +11,14 @@
     "mongoose": "^5.0.12"
   },
   "devDependencies": {
-    "jest": "^22.4.3"
+    "jest": "^22.4.3",
+    "nodemon": "^1.17.3"
   },
-  "scripts":{
-    "start": "node src/index.js",
+  "scripts": {
+    "start": "nodemon src/index.js",
     "test": "jest"
   },
-  "jest":{
+  "jest": {
     "collectCoverage": false,
     "collectCoverageFrom": [
       "!**/node_modules/**",
@@ -25,9 +26,9 @@
     ],
     "coverageDirectory": "__tests__/coverage",
     "setupFiles": [
-			"<rootDir>/__tests__/setup/setupTests.js"
+      "<rootDir>/__tests__/setup/setupTests.js"
     ],
-    "testPathIgnorePatterns":[
+    "testPathIgnorePatterns": [
       "/node_modules/",
       "/__tests__/setup/",
       "/__tests__/coverage/"
