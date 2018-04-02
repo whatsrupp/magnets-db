@@ -1,15 +1,36 @@
 {
-  "dependencies": {
-    "express": "^4.16.3",
-    "mongoose": "^5.0.12"
-  },
   "name": "magnets-db",
   "version": "1.0.0",
   "description": "Backend for educational electromagnet app",
   "main": "index.js",
   "author": "whatsrupp <nickrupp95@gmail.com>",
   "license": "MIT",
+  "dependencies": {
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "mongoose": "^5.0.12"
+  },
   "devDependencies": {
     "jest": "^22.4.3"
+  },
+  "scripts":{
+    "start": "node src/index.js",
+    "test": "jest"
+  },
+  "jest":{
+    "collectCoverage": false,
+    "collectCoverageFrom": [
+      "!**/node_modules/**",
+      "**/*.{js}"
+    ],
+    "coverageDirectory": "__tests__/coverage",
+    "setupFiles": [
+			"<rootDir>/__tests__/setup/setupTests.js"
+    ],
+    "testPathIgnorePatterns":[
+      "/node_modules/",
+      "/__tests__/setup/",
+      "/__tests__/coverage/"
+    ]
   }
 }
