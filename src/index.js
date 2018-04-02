@@ -2,11 +2,12 @@ var express = require('express')
 var app = express()
 
 require('dotenv').load();
+require('./setupMongoose').setupMongoose();
 
 app.get('/', function (req, res) {
-  res.send('Hello World!')
+  res.send('Magnets')
 })
 
 app.listen(8000, function () {
-  console.log('Example app listening on port 8000!')
+  console.log('Magnets Backend is set up on port 8000')
 })
