@@ -4,10 +4,11 @@ var Schema = mongoose.Schema;
 
 var PostSchema = new Schema(
   {
-    text: {type: String, required: true, max: 100},
+    title: {type: String, required: true, max: 100},
+    content: {type: String, required: true},
     updated: { type: Date, default: Date.now },
   }
 );
 
 var PostModel = mongoose.model('Post', PostSchema);
-module.exports = PostModel;
+export default PostModel
