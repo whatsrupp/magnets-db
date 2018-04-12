@@ -1,9 +1,11 @@
 var express = require('express')
 var router = express()
+var cors = require('cors')
 
 require('dotenv').load();
 require('./setupMongoose').setupMongoose();
 
+router.use(cors())
 const bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({ extended: false })); // Parses urlencoded bodies
 router.use(bodyParser.json()); // Send JSON responses
@@ -11,7 +13,6 @@ router.use(bodyParser.json()); // Send JSON responses
 var graphqlHTTP = require('express-graphql');
 
 import schema from './graphQLSchema'
-import { connect } from 'tls';
 
 router.use('/graphql', graphqlHTTP({
   schema: schema,
